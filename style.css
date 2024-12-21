@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.etch-container {
+    display: flex;
+    height: 800px;
+    width: 800px;
+    flex-wrap: wrap;
+}
