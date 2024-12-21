@@ -10,11 +10,12 @@ function createGrid(grid_size){
                 square_number += 1;
                 let gridSquare = document.createElement("div");
                 gridSquare.setAttribute("id",`${square_number}`);
-                gridSquare.setAttribute("class","square")
-                gridSquare.style.boxSizing = "border-box"
+                gridSquare.setAttribute("class","square");
+                gridSquare.style.boxSizing = "border-box";
                 gridSquare.style.border = "1px solid red";
                 gridSquare.style.height = calculateGridSquareSize(grid_size);
                 gridSquare.style.width = calculateGridSquareSize(grid_size);
+                gridSquare.style.transition = "white 1s linear";
         
         
                 etch_container.appendChild(gridSquare);
@@ -40,5 +41,25 @@ function calculateGridSquareSize(grid_size){
     return `${800 / grid_size}px` //size of grid
 }
 
+function fadeInColor(target) {
+    target.style.transition = "background-color 0.09s ease-in";
+    target.style.backgroundColor = "green"; 
+}
+
+function fadeOutColor(target) {
+    target.style.transition = "background-color 4s ease-out"; 
+    target.style.backgroundColor = ""; 
+}
 
 createGrid(user_grid_size);
+
+let targetSquare = document.querySelectorAll(".square");
+targetSquare.forEach((square) => {
+    square.addEventListener("mouseover", () => {
+        fadeInColor(square); 
+    });
+
+    square.addEventListener("mouseout", () => {
+        fadeOutColor(square);
+    });
+});
